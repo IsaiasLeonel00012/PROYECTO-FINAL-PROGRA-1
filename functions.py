@@ -3,8 +3,8 @@
 from database import get_pokemon_name, get_pokemon_tipo, get_pokemon_todos, connect_db, TIPOS_RUTAS
 import tkinter as tk 
 from PIL import Image, ImageTk
-import pygame
-from tkinter import Toplevel, messagebox, ttk
+import pygame # para lo del sonido 
+from tkinter import Toplevel, messagebox, ttk # para abrir segunda ventana 
 from tkinter import filedialog
 
 
@@ -72,11 +72,12 @@ def busqueda_por_nombre(txt_busqueda_name, lb_pokemon_info, lb_pokemon_tipo1, lb
 
 #primera funcion que se ultilizara ya que el menuoption comienza con posicion [0]
 def busqueda_por_id(txt_busqueda_name, lb_pokemon_info, lb_pokemon_tipo1, lb_pokemon_tipo2, lb_sprite, btn_reproducir):
-    #obtener el valor del campo de texto
+    #obtener el valor del campo de texto y que borre los espacios en blanco 
+
     entrada = txt_busqueda_name.get("1.0", tk.END).strip()
     #se valida si es un digito el que se esta ingresando
-    if entrada.isdigit():
-        id_pokedex = int(entrada)
+    if entrada.isdigit(): 
+        id_pokedex = int(entrada) # solo acepta numero enteros
         #obtener el pokemon solo por ID
         pokemon = get_pokemon_name(id_pokedex=id_pokedex)
         
